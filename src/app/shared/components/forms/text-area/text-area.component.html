@@ -1,0 +1,16 @@
+<mat-form-field class="description" appearance="{{options.appearance? options.appearance: 'none'}}"
+                [formGroup]="formGroup"
+                id="{{options.appearance === 'legacy' ? options.appearance : 'none-area'}}"
+                [ngStyle]="customStyle">
+  <textarea
+    [placeholder]="options.placeholder | translate"
+    matInput
+    [formControlName]="controlName"
+    [required]="options.required"
+  ></textarea>
+  <mat-error *ngIf="options.error && formGroup.controls[controlName].invalid">
+    {{label}}
+    is required
+  </mat-error>
+
+</mat-form-field>

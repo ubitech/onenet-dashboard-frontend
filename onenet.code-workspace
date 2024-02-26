@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../spring-authentication"
+    },
+    {
+      "path": "../analytics_service"
+    }
+  ],
+  "settings": {}
+}

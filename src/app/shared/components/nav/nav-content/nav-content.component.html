@@ -1,0 +1,26 @@
+<div class="main-content-expanded">
+  <div class="sidenav-item" *ngFor="let item of items">
+    <i class="bx sidenav-icon" [ngClass]="item.icon"> </i>
+    <div class="nav-list">
+      <div class="title"
+           [routerLink]="item.url"
+           [ngClass]="item.url?'pointer':'no-pointer'">
+        {{item.label | translate}}
+      </div>
+      <div class="content">
+        <mat-list *ngIf="item.content.length > 0">
+          <mat-list-item *ngFor="let children of item.content">
+            <div class="child-item" matLine
+                 [ngClass]="children.url?'pointer':'no-pointer'"
+                 [routerLink]="children.url">{{children.label | translate}}</div>
+            <div class="sub-child-item" matLine
+                 *ngFor="let subchildren of children.subchildren"
+                 [ngClass]="subchildren.url?'pointer':'no-pointer'"
+                 [routerLink]="subchildren.url">{{subchildren.label | translate}}</div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </div>
+
+</div>

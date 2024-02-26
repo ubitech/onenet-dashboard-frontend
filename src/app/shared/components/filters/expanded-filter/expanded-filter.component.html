@@ -1,0 +1,53 @@
+<div class="filter-wrapper">
+  <form [formGroup]="filterForm">
+    <div class="flex inputs">
+      <ng-container *ngFor="let input of inputs">
+        <app-text-input
+          [controlName]="input.ctrl"
+          [label]="input.name"
+          [formGroup]="filterForm"
+          [customStyle]="{ 'margin-right': '1em' }"
+          *ngIf="input.type === 'text'">
+        </app-text-input>
+        <app-dropdown-input
+          [controlName]="input.ctrl"
+          [label]="input.name"
+          [formGroup]="filterForm"
+          [customStyle]="{ 'margin-right': '1em' }"
+          [values]="input.values"
+          [multiple]="true"
+          *ngIf="input.type === 'dropdown'">
+        </app-dropdown-input>
+        <app-datepicker-input
+          [controlName]="input.ctrl"
+          [label]="input.name"
+          [formGroup]="filterForm"
+          [customStyle]="{ 'margin-right': '1em' }"
+          [minDate]="min[input.ctrl]"
+          [maxDate]="max[input.ctrl]"
+          *ngIf="input.type === 'date'">
+        </app-datepicker-input>
+      </ng-container>
+
+    </div>
+
+    <div class="filter-buttons flex">
+      <button
+        mat-raised-button
+        color="primary"
+        class="filter-btn"
+        (click)="filter()"
+      >
+        {{'filter' | translate}}
+      </button>
+      <button
+        mat-raised-button
+        color="white"
+        class="btn-small"
+        (click)="reset()"
+      >
+        <i class="bx bx-refresh refresh-icon"></i>
+      </button>
+    </div>
+  </form>
+</div>

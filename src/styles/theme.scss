@@ -1,0 +1,142 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$black-87-opacity: rgba(black, 0.87);
+$white: rgba(white, 1);
+$black-12-opacity: rgba(black, 0.12);
+$white-12-opacity: rgba(white, 0.12);
+$black-6-opacity: rgba(black, 0.06);
+$white-6-opacity: rgba(white, 0.06);
+
+//Primary - Main colors most widely used across all screens and components.
+//Accent - Also known as the secondary color. Used for floating action buttons and interactive elements.
+//Warn - Colors to convey error state.
+//Foreground - Used for text and icons.
+//Background - Colors used for element backgrounds.
+$mat-primary: (
+  50: hsl(212deg 33% 85%),
+  100: hsl(212deg 91% 90%),
+  200: hsl(212deg 45% 21%),
+  300: hsl(212deg 65% 21%),
+  400: hsl(212deg 65% 21%),
+  500: hsl(212deg 90% 21%),
+  600: hsl(212deg 90% 21%),
+  700: hsl(212deg 90% 21%),
+  800: hsl(212deg 90% 21%),
+  900: hsl(212deg 90% 21%),
+  A100: hsl(212deg 100% 21%),
+  A200: hsl(212deg 100% 21%),
+  A400: hsl(212deg 100% 21%),
+  A700: hsl(212deg 100% 21%),
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white,
+    900: $white,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white
+  )
+);
+
+
+$mat-secondary: (
+  50: hsl(190deg 15% 92%),
+  100: hsl(47deg 75% 50%),
+  200: hsl(47deg 75% 50%),
+  300: hsl(47deg 75% 50%),
+  400: hsl(47deg 75% 50%),
+  500: hsl(47deg 100% 50%),
+  600: hsl(47deg 100% 50%),
+  700: hsl(47deg 100% 50%),
+  800: hsl(47deg 100% 50%),
+  900: hsl(47deg 100% 50%),
+  A100: #0096B7,
+  A200: #0096B7,
+  A400: #0096B7,
+  A700: #0096B7,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white,
+    900: $white,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$mat-warn: (
+  50: #f6f1d6,
+  100: #FF9090,
+  200: #FF9090,
+  300: #FF9090,
+  400: #FF9090,
+  500: #E80000,
+  600: #E80000,
+  700: #E80000,
+  800: #E80000,
+  900: #E80000,
+  A100: #910000,
+  A200: #910000,
+  A400: #910000,
+  A700: #910000,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white,
+    900: $white,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+
+$my-app-primary: mat-color($mat-primary, 500);
+$my-app-primary-light: mat-color($mat-primary, 100);
+$my-app-accent: mat-color($mat-secondary, 500);
+$my-app-warn: mat-color($mat-warn, 500);
+
+$input: mat-color($mat-primary, 50);
+$input-text: #838286;
+$success: #00d971;
+$input-text-secondary: #4B5666;
+
+$my-app-theme: mat-light-theme(
+  mat-palette($mat-primary, 500), 
+  mat-palette($mat-secondary, 500), 
+  mat-palette($mat-warn, 500));
+@include angular-material-theme($my-app-theme);
+
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-primary);
+  $alternate-accent: mat-palette($mat-secondary, 400);
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+  @include angular-material-theme($alternate-theme);
+}
+
+// Whether duplication warnings should be disabled. Warnings enabled by default.
+$theme-ignore-duplication-warnings: true !default;
+

@@ -1,0 +1,56 @@
+@import "theme.scss";
+
+::ng-deep {
+  .mat-select-arrow {
+    margin: 0 1em !important;
+  }
+
+  #dropdown-multiple-filter-select-panel,
+  #dropdown-filter-select-panel {
+    min-width: calc(100% + 16px) !important;
+    box-shadow: 1.91768px 3.83535px 11.5061px hsl(212deg 45% 30%) !important;
+    border-radius: unset !important;
+    .mat-option.mat-selected:not(.mat-option-disabled), .mat-option.mat-active:not(.mat-option-disabled),
+    .mat-option:hover:not(.mat-option-disabled),
+    .mat-option:focus:not(.mat-option-disabled)  {
+      background: hsl(212deg 45% 30%) !important;
+      color: white
+    }
+  }
+}
+
+::ng-deep .ubi-dropdown.mat-form-field{
+    height: 55px;
+  }
+
+::ng-deep .ubi-dropdown {
+
+  .mat-select {
+    padding-bottom: 0.85rem;
+  }
+  .mat-form-field-wrapper {
+    padding-bottom: 0px;
+    height: 100% !important;
+
+    .mat-form-field-flex {
+      height: 100% !important;
+
+      .mat-form-field-infix {
+        margin-left: 1em !important;
+        margin-top: 0.5em;
+      }
+    }
+
+    .mat-form-field-subscript-wrapper {
+      position: unset !important;
+    }
+  }
+
+
+}
+
+@media (min-width: 2300px) {
+  .mat-form-field {
+    width: 20rem;
+  }
+}

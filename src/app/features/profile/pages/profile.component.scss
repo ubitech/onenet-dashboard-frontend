@@ -1,0 +1,17 @@
+@import "styles";
+
+.title {
+  display: flex;
+  align-content: space-between;
+  margin-bottom: 1em;
+}
+
+.avatar {
+  margin-right: 1em;
+}
+
+img {
+  border-radius: 0.4em;
+  height: 4em;
+}
+

@@ -1,0 +1,24 @@
+<div class="page-container">
+  <app-page-path [path]="'home' | translate" [routerPath]="'/dashboard'"
+                 [innerPath]="'settings' | translate"></app-page-path>
+  <br>
+  <div class="title">
+    <div class="avatar" [routerLink]="'profile'">
+      <img [src]="source">
+    </div>
+    <app-page-title [title]="'settings' | translate" [subtitle]="subtitle"></app-page-title>
+  </div>
+
+  <mat-tab-group dynamicHeight>s
+    <mat-tab [label]="'basic-info' | translate">
+      <app-basic-info></app-basic-info>
+    </mat-tab>
+    <mat-tab label="Avatar">
+      <app-avatar></app-avatar>
+    </mat-tab>
+    <mat-tab [label]="'time-zone' | translate">
+      <app-time-zone></app-time-zone>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+

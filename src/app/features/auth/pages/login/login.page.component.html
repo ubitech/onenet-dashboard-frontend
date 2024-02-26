@@ -1,0 +1,49 @@
+<mat-card-content class="login">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>
+      <img id="icon" src="../../../../../assets/icons/sign-in.svg"/> {{ "sign-in" | translate }}
+    </h2>
+    <app-error-container [errors]="errors"></app-error-container>
+    <app-text-input
+      [controlName]="'username'"
+      [label]="'username'"
+      [formGroup]="form"
+      [ngClass]="{'invalid': checkUsernameError}"
+      [options]="{placeholder: 'username' }"
+      (change)="validate()"
+      (onClearInput)="validate()"
+    >
+    </app-text-input>
+    <app-password-input
+      [controlName]="'password'"
+      [label]="'password'"
+      [formGroup]="form"
+      [ngClass]="{'invalid': checkPasswordError}"
+      [options]="{placeholder: 'password' }"
+      (change)="validate()"
+      (onClearInput)="validate()"
+    >
+    </app-password-input>
+    <div class="forgot-password">
+      <a [routerLink]="'/auth/forgot-password'">{{ "forgot-password" | translate }}</a>
+    </div>
+    <button
+      mat-raised-button
+      color="accent"
+      [disabled]="!form.valid"
+      class="auth-btn mt-5"
+    >
+      {{ "sign-in" | translate }}
+    </button>
+    <br/>
+    <br/>
+    <div class="sign-in">
+      <div>{{ "no-account" | translate }}</div>
+      <div>
+            <span><a routerLink="/auth/register" class="register">
+              {{ "sign-up" | translate }}
+            </a></span>
+      </div>
+    </div>
+  </form>
+</mat-card-content>

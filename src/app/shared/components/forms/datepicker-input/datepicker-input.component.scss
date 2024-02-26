@@ -1,0 +1,60 @@
+@import "theme.scss";
+
+::ng-deep #ubi-datepicker {
+  height: 4em;
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0px;
+    height: 100% !important;
+
+    .mat-form-field-flex {
+      height: 100% !important;
+
+      .mat-form-field-infix {
+        margin-left: 1em !important;
+        margin-top: 0.5em;
+      }
+
+      .mat-form-field-suffix {
+
+        .mat-datepicker-toggle {
+          position: absolute;
+          right: 8px !important;
+          top: -31px !important;
+        }
+      }
+    }
+  }
+
+
+}
+
+
+.bx-calendar {
+  font-size: 20px;
+}
+
+::ng-deep {
+  .mat-datepicker-content {
+    box-shadow: 1.91768px 3.83535px 11.5061px rgba(0, 173, 238, 0.15) !important;
+  }
+
+  .mat-calendar-period-button {
+    color: $my-app-primary;
+  }
+
+  .mat-calendar-body-label {
+    visibility: hidden !important;
+  }
+
+  tr:nth-child(even) {
+    background-color: white !important;
+  }
+
+}
+
+@media (min-width: 2300px) {
+  .mat-form-field {
+    width: 20rem;
+  }
+}

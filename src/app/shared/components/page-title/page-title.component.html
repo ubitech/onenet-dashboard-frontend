@@ -1,0 +1,9 @@
+<div class="header flex" *ngIf="!subtitle">
+  <i class="bx header-icon" *ngIf="icon" [ngClass]="icon"></i>
+  <div class="page-title">{{title | translate}}</div>
+</div>
+<div *ngIf="subtitle">
+  <i class="bx header-icon" *ngIf="icon" [ngClass]="icon"></i>
+  <div class="page-title">{{title | translate}}</div>
+  <div class="page-subtitle">{{subtitle | translate}}</div>
+</div>

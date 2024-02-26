@@ -1,0 +1,27 @@
+<div class="page-container">
+  <app-page-title [title]="'Security report' | translate" [icon]="'bx-shield-quarter'"></app-page-title>
+  <p>Abnormal activity for the last hour</p>
+  <ng-container *ngIf="loading; else ready">
+    <mat-spinner aria-label="Security report loading"></mat-spinner>
+  </ng-container>
+  <ng-template #ready>
+    <ng-container *ngIf="abnormalClients.length === 0; else notempty">
+      <h2>No abnormal activity detected.</h2>
+    </ng-container>
+    <ng-template #notempty>
+      <button color="accent" mat-button (click)="downloadCsv()">Download CSV</button>
+      <mat-card class="abnormal-client" *ngFor="let client of abnormalClients">
+        <mat-card-header>
+          <mat-card-subtitle>IP Address</mat-card-subtitle>
+          <mat-card-title>{{ client.ip }}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-list role="list">
+          <mat-list-item role="listitem"><b>Country</b>: <span class="fi fi-{{ client.countryCode.toLowerCase() }}"></span> {{ countryMapping[client.countryCode.toUpperCase()] }}</mat-list-item>
+          <mat-list-item role="listitem"><b>Total requests (24h)</b>: {{ client.hitsCount }}</mat-list-item>
+          <mat-list-item role="listitem"><b>Error frequency (24h)</b>: {{ (client.errorsCount * 100) / client.hitsCount | number: '1.0-0' }}%</mat-list-item>
+        </mat-list>
+      </mat-card>
+    </ng-template>
+  </ng-template>
+</div>

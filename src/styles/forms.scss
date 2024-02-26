@@ -1,0 +1,19 @@
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #eff4f7 inset !important;
+  box-shadow: 0 0 0 30px #eff4f7 inset !important;
+}
+
+input.mat-input-element {
+  color: $input-text-secondary !important;
+}
+
+.mat-focused .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix
+.mat-form-field-label-wrapper .mat-form-field-label {
+  color: $my-app-primary !important;
+}
+

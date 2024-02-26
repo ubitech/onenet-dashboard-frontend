@@ -1,0 +1,8 @@
+@import "theme.scss";
+
+.back-btn {
+  background-color: transparent !important;
+  color: $my-app-primary !important;
+  border: 3px solid $my-app-primary !important;
+  box-sizing: border-box;
+}

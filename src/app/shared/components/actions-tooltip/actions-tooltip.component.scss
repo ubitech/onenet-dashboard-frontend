@@ -1,0 +1,59 @@
+@import "theme.scss";
+
+.action-btn {
+  position: absolute;
+  right: 15px;
+  bottom: 31px;
+  font-size: 20px;
+  cursor: pointer;
+  color: $my-app-primary;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+.actions-tooltip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // width: 148px;
+  text-align: center;
+  background: #eff4f7;
+  //box-shadow: 2px 4px 12px rgba(0, 173, 238, 0.15);
+  box-shadow: 7px 4px 23px rgb(0 0 0 / 10%);
+  position: absolute;
+  right: -13px;
+  top: 90%;
+  z-index: 999;
+  padding: 1em;
+
+
+  .action {
+    margin: 0.5em;
+    font-size: 1rem;
+    font-weight: 500;
+    //margin: 6%;
+    color: #6e7c91;
+    cursor: pointer;
+    font-family: "Ubuntu Light", sans-serif !important;
+
+  }
+
+  .arrow-up {
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-bottom: 18px solid #eff4f7;
+    right: 20px;
+    bottom: 100%;
+    position: absolute;
+  }
+}
+
+
+#language {
+  hr {
+    border-top: 1px solid #D9E3E9;
+  }
+
+  width: 100%;
+}

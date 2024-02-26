@@ -1,0 +1,18 @@
+<mat-toolbar *ngIf="toolbarVisible">
+  <div class="toolbar-content">
+    <div class="avatar" [routerLink]="'settings'">
+      <img [src]="source"/>
+    </div>
+    <div class="toolbar-actions">
+      <app-actions-tooltip
+        [cssProperties]="cssProperties"
+        [arrowShow]="false"
+        [icon]="'bx bx-chevron-down'"
+        [language]="false"
+        [actions]="toolbarActions"
+        (onClickAction)="actionClick($event)"
+      ></app-actions-tooltip>
+    </div>
+
+  </div>
+</mat-toolbar>

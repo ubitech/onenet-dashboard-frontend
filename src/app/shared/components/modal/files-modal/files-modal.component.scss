@@ -1,0 +1,25 @@
+@import "theme.scss";
+
+.files-container {
+    height: 12em;
+    overflow: auto;
+    margin-top: 1em;
+    padding-right: 0.5em;
+    .header {
+        color: rgb(131, 130, 134)
+    }
+    .list-file {
+        border-bottom: 1px solid #EFF4F6;
+    }
+    .file {
+        color: $my-app-primary;
+    }
+}
+
+.btn-container {
+    display: flex;
+    align-self: center;
+    .btn-done {
+        background-color: #6e7c91 !important;
+      }
+}

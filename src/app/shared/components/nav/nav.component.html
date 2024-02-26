@@ -1,0 +1,55 @@
+<mat-sidenav-container class="nav-container" *ngIf="shouldRun">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [(opened)]="opened"
+    (opened)="events.push('open!')"
+    (closed)="events.push('close!')"
+    *ngIf="headerVisible"
+    [@openClose]="expanded ? 'opened' : 'closed'"
+    [ngClass]="expanded ? 'opened' : 'closed'"
+  >
+    <div class="logo" [ngClass]="{'expandedLogo': expanded}">
+      <a routerLink="home"><img [src]="logoImg" style="width:100%;" alt="Onenet"/></a>
+    </div>
+
+    <ng-container *ngIf="!expanded; else mainContentExpanded">
+      <div class="main-content">
+        <ng-container *ngFor="let item of navItems">
+          <a
+            class="sidenav-item "
+            (mouseenter)="toggleTooltip(item.label, false)"
+            (mouseleave)="toggleTooltip(item.label, true)"
+            [routerLink]="item.url"
+            [ngClass]="item.url?'pointer':'no-pointer'"
+          >
+            <div class="icon">
+              <i class="bx sidenav-icon" [ngClass]="item.icon"></i>
+
+            </div>
+            <div [@enterAnimation]="!item.hidden? 'shown': 'hidden' " [hidden]="item.hidden"
+                 style="z-index: 1000 !important;">
+              <app-nav-tooltip [item]="item"></app-nav-tooltip>
+            </div>
+          </a>
+        </ng-container>
+      </div>
+    </ng-container>
+    <i
+      *ngIf="!hideIcon"
+      class="bx caret"
+      [ngClass]="{ 'bx-caret-right': !expanded, 'bx-caret-left': expanded }"
+      (click)="expandNav()"
+    ></i>
+  </mat-sidenav>
+
+  <mat-sidenav-content [@marginContent]="expanded ? 'opened' : 'closed'">
+    <app-nav-toolbar [toolbarVisible]="headerVisible"></app-nav-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<ng-template #mainContentExpanded>
+  <app-nav-content [items]="navItems"></app-nav-content>
+</ng-template>

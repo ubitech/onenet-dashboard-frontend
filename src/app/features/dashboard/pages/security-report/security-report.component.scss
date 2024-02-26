@@ -1,0 +1,23 @@
+mat-card {
+  margin: 10px 0;
+  max-width: 600px;
+}
+
+.mat-stroked-button {
+  padding: 10px 15px;
+  border-radius: 4px !important;
+}
+
+mat-list-item span.fi {
+  margin: 0 5px;
+}
+
+mat-list-item > span:first-child() {
+  background: red;
+}
+
+.mat-button {
+  padding: 10px;
+  color: white;
+  border-radius: 4px !important;
+}

@@ -1,0 +1,65 @@
+@import "theme.scss";
+
+form {
+  .description {
+    height: 124px !important;
+    width: 73vw !important;
+  }
+
+  input {
+    width: 96%;
+  }
+
+  ::ng-deep.mat-form-field {
+    height: 62px;
+    margin-right: 24px;
+    min-width: 200px;
+    margin-bottom: 46px;
+
+    .mat-input-element, .mat-select-value {
+      color: $input-text-secondary !important;
+      font-family: "Ubuntu Regular" !important;
+      letter-spacing: 0.75px !important;
+    }
+
+    .mat-form-field-label {
+      top: 20px;
+    }
+
+    .mat-form-field-wrapper {
+      height: 100% !important;
+
+      .mat-form-field-flex {
+        height: 100% !important;
+
+        .mat-form-field-infix {
+          top: 5px;
+          left: 13px;
+
+          .mat-select {
+            width: 95% !important;
+          }
+        }
+
+        .mat-form-field-suffix {
+          bottom: 4px;
+        }
+      }
+    }
+  }
+
+}
+
+.form-container {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+button {
+  width: 30vw;
+}
+
+app-text-input {
+  height: 5rem;
+}

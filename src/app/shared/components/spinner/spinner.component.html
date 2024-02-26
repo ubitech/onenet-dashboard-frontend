@@ -1,0 +1,11 @@
+<div [ngClass]="{'overlay': overlay && local}" *ngIf="show">
+  <div [ngClass]="color" *ngIf="!local; else localSpinner">
+    <mat-spinner class="spinner global" [ngClass]="{'withSidebar': withSidebar}"></mat-spinner>
+  </div>
+</div>
+
+<ng-template #localSpinner>
+  <div [ngClass]="color">
+    <mat-spinner class="local spinner" [strokeWidth]="5" [diameter]="50" [ngStyle]="position"></mat-spinner>
+    </div>
+</ng-template>

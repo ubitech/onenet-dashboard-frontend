@@ -1,0 +1,76 @@
+@import "theme.scss";
+
+
+.added-margin {
+  margin-bottom: 2.5rem;
+}
+
+mat-card {
+  box-sizing: border-box;
+  box-shadow: 1.92px 3.84px 11.51px rgba(0, 173, 238, 0.15) !important;
+  height: 24rem;
+  width: 20vw;
+  min-width: 19rem;
+  margin-bottom: 1vh;
+
+  mat-card-title {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 30px;
+    letter-spacing: 0.75px;
+    color: $my-app-primary;
+  }
+
+  mat-card-subtitle {
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.25px;
+    color: $input-text;
+
+    &.footer {
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+
+  mat-card {
+
+    mat-card-title {
+      font-size: 16px;
+      line-height: 32px;
+    }
+    mat-card-subtitle {
+      font-size: 12px;
+      line-height: 16px;
+
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  mat-card {
+    height: auto;
+    min-height: 24rem;
+
+    mat-card-title {
+      font-size: 14px !important;
+      line-height: 36px!important;
+    }
+
+    mat-card-subtitle {
+      font-size: 12px !important;
+      line-height: 16px!important;
+    }
+  }
+}
+
+@media (min-width: 2300px) {
+  mat-card {
+    height: auto;
+    min-height: 33rem;
+  }
+}
+

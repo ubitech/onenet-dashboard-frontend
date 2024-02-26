@@ -1,0 +1,84 @@
+<ng-container class="register-container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>
+      <img id="icon" src="../../../../../assets/icons/sign-in.svg"/>
+      {{ "sign-up" | translate }}
+    </h2>
+    <app-error-container [errors]="errors"></app-error-container>
+    <app-text-input
+      [controlName]="'username'"
+      [label]="'username'"
+      [formGroup]="form"
+      [options]="options"
+      [ngClass]="{'invalid': checkUsernameError}"
+      (change)="validateUsername()"
+    >
+    </app-text-input>
+    <app-text-input
+      [controlName]="'email'"
+      [label]="'Email'"
+      [type]="'email'"
+      [formGroup]="form"
+      [options]="options"
+      [ngClass]="{'invalid': checkEmailErrors}"
+      (change)="validateEmail()"
+    >
+    </app-text-input>
+    <div
+      formGroupName="passwords"
+      id="password"
+      [ngClass]="{'invalid': checkPasswordErrors || checkPasswordRequiredError}"
+    >
+
+      <app-password-input
+        id="password-input"
+        [controlName]="'password'"
+        [label]="'password'"
+        [formGroup]="form.get('passwords')"        
+        [customStyle]="{ 'margin-bottom': '13px' }"
+
+        [options]="options"
+        [toggleVisibility]="true"
+        [passwordStrength]="true"
+        (change)="validatePassword('password')">
+      </app-password-input>
+    </div>
+    <div formGroupName="passwords"
+         [ngClass]="{'invalid': checkPasswordErrors || checkConfirmPasswordRequiredError}"
+         class="mt-13"
+    >
+      <app-password-input
+        [controlName]="'confirmPassword'"
+        [label]="'password-confirm'"
+        [formGroup]="form.get('passwords')"
+        [customStyle]="{ 'margin-bottom': '7px' }"
+        [options]="options"
+        [toggleVisibility]="true"
+        (change)="validatePassword('confirmPassword')">
+      </app-password-input>
+    </div>
+    <div class="mt-2">
+      <app-radio-button
+      [controlName]="'role'"
+      [formGroup]="form"
+      [label]="'user-kind-question'"
+      [buttons]="buttons"
+      [returnValue]="'id'"
+    >
+    </app-radio-button>
+    </div>
+
+    <button
+      mat-raised-button
+      color="accent"
+      [disabled]="!form.valid"
+      class="auth-btn mt-3"
+    >
+      {{ "register" | translate }}
+    </button>
+    <br/>
+    <br/>
+    <div class="text align-center">{{ "have-account" | translate }}?</div>
+    <div class="sign-in"><a routerLink="/auth/login">{{ "sign-in" | translate }}</a></div>
+  </form>
+</ng-container>

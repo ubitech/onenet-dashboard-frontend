@@ -1,0 +1,39 @@
+<div class="paginator-container">
+  <div class="page-size-options">
+    <div class="options-text">{{'paginator-rows' | translate}}</div>
+    <div class="options-select">
+      <div class="option-default"
+           (click)="onOptionsClick()">
+        {{ rowsPerPage }}
+        <i class="bx bx-caret-down"></i>
+      </div>
+      <div class="options-box" (mouseleave)="isOptionSelected=false" *ngIf="isOptionSelected">
+        <div class="option" *ngFor="let option of pageOptions">
+          <div
+            [ngClass]="{ 'option-selected': rowsPerPage === option }"
+            (click)="onOptionSelect(option)"
+          >
+            {{ option }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-shown" >{{ fromPage }}-{{ toPage }} of {{ length }}</div>
+  <div class="page-size-buttons">
+    <button
+      class="paginator-button"
+      (click)="onPreviousPage()"
+      [disabled]="fromPage <= 1"
+    >
+      <i class="bx bx-chevron-left btn-icon"></i>
+    </button>
+    <button
+      class="paginator-button"
+      (click)="onNextPage()"
+      [disabled]="!toPage || toPage === length"
+    >
+      <i class="bx bx-chevron-right btn-icon"></i>
+    </button>
+  </div>
+</div>

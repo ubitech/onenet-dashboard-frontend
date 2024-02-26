@@ -1,0 +1,26 @@
+<app-modal-skeleton [title]="data.title | translate" [dialogRef]="dialogRef" [id]="data.element.id">
+  <p> {{'delete.notice' | translate}}
+  </p>
+  <p>
+    {{'delete.confirm' | translate}}
+    <strong>{{data.element.name}}</strong> ?
+  </p>
+
+  <div class="dialog-buttons-container mt-140">
+    <button
+      mat-raised-button
+      color="accent"
+      class="btn btn-cancel"
+      (click)="closeDialog(false)"
+    >
+      {{'false_' | translate }}
+    </button>
+    <button
+      mat-raised-button
+      class="btn delete"
+      (click)="closeDialog(true)"
+    >
+      {{'delete.message' | translate }}
+    </button>
+  </div>
+</app-modal-skeleton>

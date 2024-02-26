@@ -1,0 +1,9 @@
+<div class="language">
+  <span class="lang" [ngClass]="{'selected' : languages[1] === selectedLanguage}" (click)="switchLang(languages[1])">
+      {{languages[1] ? languages[1] : ''}}
+    </span>
+  |
+  <span class="lang" [ngClass]="{'selected' : languages[0] === selectedLanguage}" (click)="switchLang(languages[0])">
+      {{languages[0] ? languages[0] : ''}}
+    </span>
+</div>

@@ -1,0 +1,41 @@
+@import "theme.scss";
+
+.search-input {
+  width: 25em !important;
+  height: 2.3em !important;
+}
+
+.filter-wrapper {
+  margin-top: 4vh;
+}
+
+.inputs {
+  padding-bottom: 1em;
+}
+
+.filter-btn {
+  height: 40px;
+  width: 120px;
+  min-width: 120px;
+}
+
+.refresh-icon {
+  font-size: 25px;
+  color: $my-app-primary;
+}
+
+.filter-buttons {
+  margin-top: 2em;
+
+  button {
+    margin-right: 14px;
+  }
+
+  .mat-raised-button {
+    padding: 0px !important;
+  }
+}
+
+button.mat-accent {
+  font-size: 13px;
+}

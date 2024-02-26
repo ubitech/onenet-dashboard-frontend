@@ -1,0 +1,47 @@
+@import "theme.scss";
+
+::ng-deep #search-input {
+
+  width: 25em !important;
+  height: unset !important;
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+    height: 100% !important;
+
+    .mat-form-field-flex {
+      display: block !important;
+      height: unset;
+
+      .mat-form-field-infix {
+        height: 2.5em !important;
+        border-top: 0 !important;
+        border-top: 0 !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+
+
+.withIcon {
+  padding-left: 40px !important;
+}
+
+.search-icon {
+  font-size: 1.5em;
+  position: absolute;
+  top: 0px;
+  left: 16px;
+  color: $my-app-primary;
+  margin-top: 0.7em;
+}
+
+@media (min-width: 2300px) {
+  ::ng-deep  #search-input {
+    width: 60rem!important;
+    height: unset !important;
+  }
+}
+

@@ -1,0 +1,16 @@
+<div class="page-container">
+    <app-page-title [title]="'Energy Analytics' | translate" [icon]="'bx-bulb'"></app-page-title>
+    <div class="chart-container">
+        <div class="chart-title">
+            Flexibility Events Per Day (of current month)
+        </div>
+        <app-bar-chart
+        [inputSeries]="energyAnalyticsChartSeries"
+        [inputOptions]="energyAnalyticsChartOptions"
+        [xaxis]="energyAnalyticsChartXAxis"
+        [horizontal]="false"
+        [stacked]="false"
+      >
+      </app-bar-chart>
+    </div>
+</div>

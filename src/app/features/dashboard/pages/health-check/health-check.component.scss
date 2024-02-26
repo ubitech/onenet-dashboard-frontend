@@ -1,0 +1,39 @@
+@import "theme.scss";
+
+mat-list {
+  margin-bottom: 20px;
+}
+
+mat-icon {
+  &.generic {
+    color: $my-app-primary;
+  }
+  &.online {
+    color: #1E8E3E;
+  }
+  &.idle {
+    color: #E37400;
+  }
+  &.offline {
+    color: #858585;
+  }
+}
+
+div.date {
+  color: rgba(0,0,0,0.6);
+}
+
+mat-card {
+  width: 300px;
+  mat-icon {
+    vertical-align: middle;
+  }
+  span {
+    vertical-align: middle;
+    margin-left: 10px;
+    color: rgba(0,0,0,0.6);
+    b {
+      color: black;
+    }
+  }
+}

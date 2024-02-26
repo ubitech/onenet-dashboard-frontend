@@ -1,0 +1,11 @@
+<apx-chart #chart *ngIf="chartOptions.series.length>0"
+           [series]="chartOptions.series"
+           [labels]="chartOptions.labels"
+           [chart]="chartOptions.chart"
+           [fill]="chartOptions.fill"
+           [plotOptions]="chartOptions.plotOptions"
+           [dataLabels]="chartOptions.dataLabels"
+           [tooltip]="chartOptions.tooltip"
+           [legend]="chartOptions.legend"
+></apx-chart>
+<p *ngIf="chartOptions.series.length==0">No Data Available</p>

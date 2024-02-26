@@ -1,0 +1,27 @@
+<form class="form-container" [formGroup]="profileForm" *ngIf="user">
+  <app-dropdown-input
+    [controlName]="'timezone'"
+    [label]="'timezone'"
+    [formGroup]="profileForm"
+    [values]="timezones"
+    [multiple]="false"
+  ></app-dropdown-input>
+  <app-dropdown-input
+    [controlName]="'dateFormat'"
+    [label]="'date-format'"
+    [formGroup]="profileForm"
+    [values]="dateFormat"
+    [multiple]="false"
+  ></app-dropdown-input>
+  <button
+    mat-raised-button
+    color="accent"
+    class="btn"
+    style="width : 10em;"
+    (click)="update()"
+  >
+    Update
+  </button>
+</form>
+
+<app-info [message]="message"></app-info>

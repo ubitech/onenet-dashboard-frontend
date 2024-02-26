@@ -1,0 +1,52 @@
+@import "styles";
+
+
+
+.sign-in {
+  font-size: 16px;
+  text-decoration-line: underline;
+  color: $my-app-primary;
+  letter-spacing: 0.75px;
+  line-height: 35px;
+}
+
+.align-center {
+  text-align: center;
+}
+
+::ng-deep {
+  .mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+    color: white !important;
+  }
+
+  .material-icons {
+    font-family: 'Material Icons' !important;
+  }
+
+}
+
+
+.register-container {
+  .mat-form-field-underline {
+    display: none;
+  }
+
+}
+
+::ng-deep.invalid {
+
+  .mat-form-field-wrapper {
+    .mat-form-field-flex {
+      outline: 3px solid red !important;
+
+      .mat-form-field-infix {
+
+        .mat-form-field-label-wrapper {
+          .mat-form-field-label {
+            color: $input-text !important;
+          }
+        }
+      }
+    }
+  }
+}

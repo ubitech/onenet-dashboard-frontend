@@ -1,0 +1,49 @@
+<app-modal-skeleton [title]="data.title" [dialogRef]="dialogRef">
+    <form [formGroup]="form" class="dialog-form" [ngClass]="{'mt-30' : data.location }">  
+        <app-text-input
+          [controlName]="'file'"
+          [formGroup]="form"
+          [label]="'selectFile'"
+          [customStyle]="{ 'width': '100%' }"
+          [options]="{
+          required:false,
+          error: true,
+          placeholder:'selectFile'
+        }"
+        ></app-text-input>
+        <button
+        mat-raised-button
+        color="accent"
+        class="btn"
+        (click)="uploadFile()"
+        style="width: '100%'"
+      >
+        {{ 'uploadFile' | translate }}
+      </button>
+    </form>
+    <div class="files-container">
+        <div class="header">
+            List of Files
+        </div>
+        <div class="content">
+            <mat-list>
+                <mat-list-item class="list-file" *ngFor="let file of files">
+                  <h3 matLine class="file"> {{file}} </h3>
+                  <span><i class='bx bx-trash'></i></span>                  
+                </mat-list-item>
+              </mat-list>
+        </div>
+    </div>
+    <div class="btn-container mt-13" id="buttons">
+      <button
+        mat-raised-button
+        color="accent"
+        class="btn btn-done"
+        [disabled]="!form.valid"
+        (click)="closeDialog(true)"
+      >
+         Done 
+      </button>
+    </div>
+  </app-modal-skeleton>
+  

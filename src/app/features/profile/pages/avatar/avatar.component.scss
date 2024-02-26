@@ -1,0 +1,36 @@
+.avatars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+img {
+  margin: 0.3em;
+  cursor: pointer;
+}
+
+img:hover {
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.30)
+}
+
+p {
+  text-align: center;
+  color: #6E7C91;
+  font-size: 16px;
+}
+
+button {
+  width: 30vw;
+  margin-top: 2em;
+}
+
+.page-container {
+  justify-content: center;
+  display: contents;
+  flex-wrap: wrap;
+}
+
+.active {
+  background-color: #64D2FC;
+  border: 5px solid #64D2FC;
+}

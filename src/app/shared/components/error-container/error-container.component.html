@@ -1,0 +1,6 @@
+<div *ngIf="errors.length > 0"
+     class="error-container"
+     [@showHideAnimation]
+>
+  <div class="error" *ngFor="let error of errors">{{error.text? error.text: error | translate}}</div>
+</div>

@@ -1,0 +1,123 @@
+<div class="page-container mb-5">
+  <app-page-title
+    [title]="'Network Monitoring Analytics' | translate"
+    [icon]="'bx-bar-chart'"
+  ></app-page-title>
+  <div class="connector-selector">
+    <mat-form-field appearance="fill">
+      <mat-label>Select connector</mat-label>
+      <mat-select [ngModel]="selectedConnector" (ngModelChange)="onConnectorChange($event)">
+        <mat-option *ngFor="let connector of connectorList" value="{{connector}}">
+          {{connector}}
+        </mat-option>
+      </mat-select>
+      <mat-hint>Currently displaying data for <b>{{selectedConnector}}</b></mat-hint>
+    </mat-form-field>
+  </div>
+  <figure class="data-monitoring-chart full-width mb-60">
+    <figcaption>Access Map</figcaption>
+    <app-map-chart
+      [data]="accessMapData"
+    >
+    </app-map-chart>
+  </figure>
+  <figure class="data-monitoring-chart full-width">
+    <mat-tab-group
+      mat-stretch-tabs
+      class="data-monitoring-tab"
+      animationDuration="0ms"
+    >
+      <mat-tab label="Last 24 hours (live)">
+        <ng-template matTabContent>
+          <div>
+            <app-bar-chart
+              [inputSeries]="dailyDataChartSeries"
+              [inputOptions]="dailyDataChartOptions"
+              [xaxis]="dailyDataChartXAxis"
+              [title]="'HTTP Transactions'"
+              [horizontal]="false"
+              [stacked]="false"
+              [updateChart$]="updateDailyChart$"
+            >
+            </app-bar-chart>
+            <app-spinner
+              [loader]="latestEventsLoader"
+              [local]="true"
+              [color]="'blue'"
+              [inputPosition]="{ 'margin-top': '160px' }"
+              (loaderStateEmitter)="latestEventsloaderStateUpdate($event)"
+            ></app-spinner>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Last 30 days">
+        <ng-template matTabContent>
+          <app-bar-chart
+            [inputSeries]="monthlyDataChartSeries"
+            [inputOptions]="monthlyDataChartOptions"
+            [xaxis]="monthlyDataChartXAxis"
+            [colors]="['#053266']"
+            [title]="'HTTP Transactions'"
+            [horizontal]="false"
+            [stacked]="false"
+            [updateChart$]="updateMonthlyChart$"
+          >
+          </app-bar-chart>
+          <app-spinner
+            [loader]="monthlyEventsLoader"
+            [local]="true"
+            [color]="'blue'"
+            [inputPosition]="{ 'margin-top': '160px' }"
+          ></app-spinner>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </figure>
+  <div class="flex full-width">
+    <figure class="data-monitoring-chart half-width">
+      <figcaption class="sent-byte-size">Data sent over time</figcaption>
+      <app-bar-chart
+        [inputSeries]="dataSentOverTimeChartSeries"
+        [inputOptions]="dataSentOverTimeChartOptions"
+        [xaxis]="dataSentOverTimeChartXAxis"
+        [title]="'Data sent over time'"
+        [horizontal]="false"
+      >
+      </app-bar-chart>
+    </figure>
+    <figure class="data-monitoring-chart half-width">
+      <figcaption class="sent-byte-size">Response codes over time</figcaption>
+      <app-bar-chart
+        [inputSeries]="responseCodesOverTimeChartSeries"
+        [inputOptions]="responseCodesOverTimeChartOptions"
+        [xaxis]="responseCodesOverTimeChartXAxis"
+        [title]="'Response codes over time'"
+        [horizontal]="false"
+      >
+      </app-bar-chart>
+    </figure>
+  </div>
+  <div class="data-monitoring-chart anomaly-detection-analysis full-width">
+    <app-anomaly-detection-graph></app-anomaly-detection-graph>
+    <!-- <div class="title">Anomaly Detection Analysis</div>
+    <div class="flex">
+      <mat-card>
+        <mat-card-title>Challenged</mat-card-title>
+        <mat-card-content class="challenged">1549</mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Recall</mat-card-title>
+        <mat-card-content class="recall-chart">
+          <app-radial-bar-chart [inputSeries]="[90]"></app-radial-bar-chart>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Passed Challenge</mat-card-title>
+        <mat-card-content class="passed-challenge">84</mat-card-content>
+      </mat-card>
+    </div>
+  </div> -->
+  </div>
+  <hr/>
+  <app-footer></app-footer>
+</div>

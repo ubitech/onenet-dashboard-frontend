@@ -1,0 +1,12 @@
+.anomaly-detection-timeframe-selector {
+  display: flex;
+  gap: 20px;
+  margin: 10px 0 10px 0;
+  mat-form-field {
+    width: 300px;
+  }
+}
+
+.anomaly-detection-chart-fixed-height-container {
+  height: 450px !important;
+}

@@ -1,0 +1,19 @@
+@import "theme.scss";
+
+.path {
+  margin-bottom: 1vh;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+  color: $input-text;
+
+}
+
+.clickable {
+  cursor: pointer;
+  color: $input-text;
+}
+
+.clickable:hover {
+  font-weight: 800 !important;
+}

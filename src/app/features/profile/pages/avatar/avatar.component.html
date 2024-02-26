@@ -1,0 +1,20 @@
+<div class="page-container">
+  <p>Please select your new avatar</p>
+  <div class="avatars">
+    <div *ngFor="let in of counter(65) ;let i = index">
+      <img [src]="'../../../../../assets/images/avatars/Frame-'+i+'.svg'"
+           (click)="state=i"
+           [ngClass]="state === i ?'active':''"
+      >
+    </div>
+  </div>
+  <div class="avatars">
+    <button mat-raised-button color="accent"
+            (click)="updateAvatar()"
+            [disabled]="!state"
+            class="btn">
+      Update
+    </button>
+  </div>
+</div>
+<app-info [message]="message"></app-info>

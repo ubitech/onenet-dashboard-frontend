@@ -1,0 +1,50 @@
+@import "theme.scss";
+
+.inputs {
+  flex-wrap: wrap !important;
+}
+
+.filter-wrapper {
+  .mat-form-field {
+    width: 18vw;
+  }
+
+  margin-top: 4vh;
+
+
+  .mat-input-element {
+    color: $input-text-secondary !important;
+    font-family: "Ubuntu Regular";
+    letter-spacing: 0.75px;
+  }
+}
+
+.filter-btn {
+  height: 40px;
+  width: 120px;
+  min-width: 120px;
+}
+
+.refresh-icon {
+  font-size: 25px;
+  color: $my-app-primary;
+}
+
+.filter-buttons {
+  margin-top: 2em;
+
+  button {
+    margin-right: 14px;
+  }
+
+  .mat-raised-button {
+    padding: 0px !important;
+  }
+}
+
+button.mat-accent {
+  font-size: 13px;
+}
+
+
+

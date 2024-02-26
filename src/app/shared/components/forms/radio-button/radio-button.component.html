@@ -1,0 +1,14 @@
+<div [formGroup]="formGroup">
+  <mat-radio-group [formControlName]="controlName">
+    <div class="text">{{label | translate}}</div>
+    <div *ngFor="let button of buttons">
+      <mat-radio-button
+        color="primary"
+        [value]="returnValue.length>0? button[returnValue]: button"
+      >
+        {{button.description | translate}}
+      </mat-radio-button>
+    </div>
+  </mat-radio-group>
+</div>
+

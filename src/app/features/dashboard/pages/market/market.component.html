@@ -1,0 +1,19 @@
+<div class="page-container">
+  <app-page-title
+    [title]="'Market' | translate"
+    [icon]="'bx-store'"
+  ></app-page-title>
+  <div class="chart-container">
+    <div class="chart-title">Day Ahead Prices</div>
+    <div id="chart">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [dataLabels]="chartOptions.dataLabels"
+        [grid]="chartOptions.grid"
+        [stroke]="chartOptions.stroke"
+      ></apx-chart>
+    </div>
+  </div>
+</div>

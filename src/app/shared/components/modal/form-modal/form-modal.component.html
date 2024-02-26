@@ -1,0 +1,75 @@
+<app-modal-skeleton [title]="data.title" [dialogRef]="dialogRef">
+  <form [formGroup]="form" class="dialog-form" [ngClass]="{'mt-30' : data.location }">
+
+    <ng-container *ngFor="let ctrl of form.controls | keyvalue">
+
+      <app-text-input
+        *ngIf="!data.values[ctrl.key] && data.formGroup"
+        [controlName]="ctrl.key"
+        [formGroup]="form"
+        [label]="ctrl.key"
+        [customStyle]="{ 'width': '100%' }"
+        [options]="{
+        required:true,
+        error: true,
+        placeholder:ctrl.key,
+        appearance:'legacy'}"
+      ></app-text-input>
+      <app-dropdown-input
+        *ngIf="data.values[ctrl.key]"
+        [controlName]="ctrl.key"
+        [label]="ctrl.key"
+        [multiple]="data.multipleChoice && data.multipleChoice[ctrl.key]"
+        [formGroup]="form"
+        [customStyle]="{ 'width': '100%' }"
+        [values]="data.values[ctrl.key]"
+        [options]="{
+        required:true,
+        error: true,
+        placeholder:ctrl.key,
+        appearance:'none'}"
+      >
+      </app-dropdown-input>
+    </ng-container>
+    <div class="map-container" *ngIf="data.location && data.locationForm">
+      <div class="flex-space-between">
+        <app-text-input
+        [controlName]="'Location'"
+        [label]="'location'"
+        [formGroup]="data.locationForm"
+        (change)="clearMarker()"
+        (onClearInput)="clearMarker()"
+      >
+      </app-text-input>
+      <button
+        mat-raised-button
+        color="accent"
+        class="btn search-btn"
+      >
+        <i id="search-icon" class="bx bx-search search-icon"></i>
+        {{'search' | translate}}
+      </button>
+      </div>
+
+    </div>
+  </form>
+  <div class="dialog-buttons-container mt-13" id="buttons">
+    <button
+      mat-raised-button
+      color="accent"
+      class="btn btn-cancel"
+      (click)="closeDialog()"
+    >
+      {{ 'cancel' | translate }}
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      class="btn"
+      [disabled]="!form.valid"
+      (click)="closeDialog(true)"
+    >
+      {{ 'save' | translate }}
+    </button>
+  </div>
+</app-modal-skeleton>

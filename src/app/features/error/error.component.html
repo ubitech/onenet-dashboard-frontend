@@ -1,0 +1,17 @@
+<div id="body">
+  <mat-toolbar>
+    <img id="logo" src="../../../assets/icons/logo-big.png"/>
+  </mat-toolbar>
+  <div class="main">
+    <h1>{{status}}</h1>
+    <h2>Ooops! Something’s wrong here</h2>
+    <p>{{description}}</p>
+    <button
+      mat-raised-button
+      color="accent"
+      class="btn"
+      [routerLink]="'/dashboard'">Go to Dashboard
+    </button>
+  </div>
+
+</div>

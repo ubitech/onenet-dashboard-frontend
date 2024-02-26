@@ -1,0 +1,120 @@
+@import "theme.scss";
+
+::ng-deep {
+  .auth {
+    .mat-form-field-wrapper {
+      .mat-form-field-flex {
+        .mat-form-field-infix {
+          input {
+            width: 98% !important;
+            font-family: "Ubuntu Regular";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px !important;
+            line-height: 28px;
+            letter-spacing: 0.75px;
+            color: $input-text-secondary !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+mat-toolbar {
+  justify-content: space-between !important;
+}
+
+$basic-font-family: "Objektiv Mk1", serif !important;
+
+#body {
+  //height: 105% !important;
+  margin: 0 !important;
+  background-size: cover;
+  background: url("../../../../../assets/svg/background.svg") no-repeat;
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: left;
+  margin-left: 1em;
+  font-family: "Objektiv Mk1 Light";
+  color: #6e7c91;
+  font-size: 18px;
+  line-height: 26px;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+#icon {
+  position: absolute;
+  margin-left: -31px;
+}
+
+#logo {
+  margin: 1em;
+  height: 1.6em;
+}
+
+mat-card {
+  max-width: 20em;
+  margin: 2em auto;
+  background-color: $white-12-opacity;
+  box-shadow: none !important;
+  padding: 2.5em;
+}
+
+mat-form-field {
+  display: block;
+  font-family: "Objektiv Mk1 Regular", serif;
+  font-weight: 400;
+}
+
+mat-toolbar {
+  background-color: transparent;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-radio-button {
+  margin-top: 1em;
+  font-family: $basic-font-family;
+}
+
+p {
+  margin-top: 1em;
+  color: $input-text;
+  font-family: $basic-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+form {
+  text-align: center;
+}
+
+button.mat-accent {
+  padding: 0.5em 3em;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.auth-btn {
+  height: 45px;
+  width: 180px;
+}
+
+.footer {
+  display: inline-block;
+  margin: auto;
+}

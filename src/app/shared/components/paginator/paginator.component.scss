@@ -1,0 +1,101 @@
+@import "theme.scss";
+
+.paginator-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-width: 350px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.25px;
+  color: #4b5666;
+
+  .page-size-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 170px;
+    cursor: pointer;
+
+    .options-select {
+      color: $input-text-secondary;
+      position: relative;
+      font-weight: 700;
+      padding: 6px;
+
+      .options-box {
+        position: absolute;
+        top: 25px;
+        left: -9%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: white;
+        box-sizing: border-box;
+        padding: 6px;
+        min-width: 30px;
+        min-height: 92px;
+        align-items: center;
+        box-shadow: 2px 4px 12px rgba(0, 173, 238, 0.15);
+        z-index: 9999;
+
+        .option {
+          margin-bottom: 5px;
+
+          .option-selected {
+            color: $my-app-primary;
+          }
+
+          &:hover {
+            color: $my-app-primary;
+
+          }
+        }
+      }
+    }
+
+    outline: 0px;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0;
+    }
+  }
+
+  .bx-caret-down {
+    font-size: 15px;
+  }
+}
+
+.page-shown {
+}
+
+.page-size-buttons {
+  display: flex;
+  width: 70px;
+  justify-content: space-between;
+
+  .paginator-button {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: $my-app-primary;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3px;
+
+    &:disabled {
+      background-color: #d9e3e9;
+    }
+
+    .btn-icon {
+      font-size: 20px;
+      color: white;
+    }
+  }
+}
+

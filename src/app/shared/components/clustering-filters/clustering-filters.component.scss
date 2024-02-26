@@ -1,0 +1,24 @@
+@import "theme.scss";
+
+.clustering-filters-container {
+  .nav-tabs {
+    width: fit-content;
+  }
+  .nav-tabs li {
+    margin-right: 15px;
+    font-size: 18px;
+    line-height: 26px;
+    color: #e0e0e0;
+    cursor: pointer;
+  }
+  .nav-tabs li.active {
+    font-weight: bold;
+    color: $my-app-primary;
+  }
+}
+
+.clustering-filter-pills-container {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}

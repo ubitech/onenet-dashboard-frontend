@@ -1,0 +1,21 @@
+<mat-form-field
+  appearance="{{ inputOptions.appearance ? inputOptions.appearance : 'none' }}"
+  [formGroup]="formGroup"
+  id="{{ inputOptions.appearance === 'legacy' ? inputOptions.appearance : 'none' }}"
+  [ngStyle]="customStyle"
+>
+  <i *ngIf="inputOptions.clearBtn && formGroup.controls[controlName].value" class="bx bx-x clear-input-btn" (click)="clearInput()"></i>
+  <mat-label *ngIf="label">{{ label | translate }}</mat-label>
+  <input
+    matInput
+    [type]="type"
+    [formControlName]="controlName"
+    [required]="inputOptions.required"
+    [placeholder]="inputOptions.placeholder | translate"
+    [readonly]="inputOptions.disabled"
+  />
+  <mat-error *ngIf="inputOptions.error && formGroup.controls[controlName].invalid">
+    {{ label }}
+    is required
+  </mat-error>
+</mat-form-field>

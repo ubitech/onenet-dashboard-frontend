@@ -1,0 +1,47 @@
+@import "theme.scss";
+
+.password {
+  margin-bottom: -20px;
+}
+
+.forgot-password {
+  position: absolute;
+  right: 33px;
+  font-size: 13px;
+  padding-top: 0.5em;
+  letter-spacing: 0.75px;
+
+  a {
+    color: $input-text;
+  }
+}
+
+.sign-in {
+  font-size: 14px;
+  margin-top: 20px;
+  color: $input-text;
+  letter-spacing: 0.75px;
+}
+
+.register {
+  font-family: "Ubuntu Bold" !important;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 24px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+//Override color red when ng-invalid
+::ng-deep .invalid {
+  .mat-form-field-wrapper {
+    .mat-form-field-flex {
+      outline: 3px solid red !important;
+
+    }
+  }
+}
+
+

@@ -1,0 +1,10 @@
+<div class="clustering-filters-container">
+  <ul class="nav nav-tabs">
+    <li [ngClass]="{'active': clustering === Clustering.Level }" (click)="setClustering(Clustering.Level)">Level Clustering</li>
+    <li [ngClass]="{'active': clustering === Clustering.Profile }" (click)="setClustering(Clustering.Profile)">Profile Clustering</li>
+  </ul>
+  <div class="clustering-filter-pills-container">
+    <app-clustering-filter-pill *ngFor="let filter of clusteringFilters | keyvalue" [filterText]="filter.key"
+      [filterState]="filter.value" (onChangeFilter)="changeFilter($event)"></app-clustering-filter-pill>
+  </div>
+</div>

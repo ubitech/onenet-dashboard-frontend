@@ -1,0 +1,17 @@
+footer {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff9f;
+    border-radius: 4px;
+    margin: 0 10px 10px 10px;
+
+    .footer-text {
+        padding: 5px;
+        text-align: center;
+    }
+    img {
+        width: 90px;
+    }
+}

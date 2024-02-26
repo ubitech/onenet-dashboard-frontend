@@ -1,0 +1,64 @@
+@import "theme.scss";
+
+$bold-font-family: "Ubuntu Regular", serif !important;
+$light-font-family: "Ubuntu Light", serif !important;
+
+#body {
+  margin: 0 !important;
+  background-size: cover;
+  background: url("../../../assets/svg/background.svg") no-repeat;
+  height: 100vh;
+}
+
+#logo {
+  margin: 1em;
+  height: 1.6em;
+}
+
+mat-toolbar {
+  background-color: transparent;
+}
+
+.main {
+  justify-content: center;
+  margin-top: 19vw;
+  text-align: center;
+}
+
+h1 {
+  font-family: $bold-font-family;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25vw;
+  line-height: 16px;
+  align-items: center;
+  letter-spacing: 0.25px;
+  color: $my-app-primary;
+  height: 12vw;
+}
+
+h2 {
+  font-family: $bold-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4vw;
+  line-height: 66px;
+  letter-spacing: 1px;
+  color: $my-app-primary;
+}
+
+p {
+  font-family: $light-font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2vw;
+  line-height: 24px;
+  align-items: center;
+  letter-spacing: 0.75px;
+  color: #006186;
+}
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+  margin-top: 1vw;
+  width: 23vw !important;
+}

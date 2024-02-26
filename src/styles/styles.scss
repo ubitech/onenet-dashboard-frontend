@@ -1,0 +1,519 @@
+/* You can add global styles to this file, and also import other style files */
+@import "theme.scss";
+
+@font-face {
+  font-family: "Ubuntu Regular";
+  src: local("Ubuntu Regular"),
+    url(../assets/fonts/Ubuntu-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu Medium";
+  src: local("Ubuntu Medium"),
+    url(../assets/fonts/Ubuntu-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu Medium Italic";
+  src: local("Ubuntu Medium Italic"),
+    url(../assets/fonts/Ubuntu-MediumItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu Light";
+  src: local("v Light"),
+    url(../assets/fonts/Ubuntu-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu Light Italic";
+  src: local("Ubuntu Light Italic"),
+    url(../assets/fonts/Ubuntu-LightItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu Bold";
+  src: local("Ubuntu Bold"),
+    url(../assets/fonts/Ubuntu-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu Bold Italic";
+  src: local("Ubuntu Bold Italic"),
+    url(../assets/fonts/Ubuntu-BoldItalic.ttf) format("truetype");
+}
+
+$basic-font-family: "Ubuntu Regular", sans-serif !important;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: $basic-font-family;
+}
+
+body * {
+  font-family: $basic-font-family;
+  letter-spacing: 0.75px;
+}
+
+.mat-body,
+.mat-body-1,
+.mat-typography {
+  font: 400 14px/20px "Ubuntu Regular", serif !important;
+  letter-spacing: normal;
+}
+
+.header {
+  align-items: center;
+  line-height: 46px;
+}
+
+.header-icon {
+  font-size: 2.2em;
+  color: $input-text;
+  padding-top: 3px;
+}
+
+.page-title {
+  font-size: 2em;
+  font-weight: 700;
+  color: $my-app-primary;
+  padding: 2px 0 2px 0;
+}
+
+button {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  line-height: inherit !important;
+  font-weight: 700 !important;
+  width: 150px;
+}
+
+button.mat-accent {
+  background-color: $my-app-primary !important;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.75px;
+}
+
+button.mat-white {
+  border: 2px solid $my-app-primary !important;
+}
+
+button.mat-button-disabled {
+  color: white !important;
+  opacity: 0.4 !important;
+}
+
+.mat-raised-button {
+  min-width: auto !important;
+}
+
+.buttons-container {
+  position: absolute;
+  bottom: 2vw;
+  right: 3vw;
+
+  .btn {
+    margin-left: 15px;
+  }
+}
+
+.btn {
+  height: 45px;
+  width: 180px;
+}
+
+.dialog-buttons-container {
+  align-self: flex-end;
+  justify-self: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15%;
+  padding-bottom: 8%;
+
+  .btn-cancel {
+    margin-right: 14px;
+    background-color: #6e7c91 !important;
+  }
+
+  .btn {
+    height: 40px;
+    min-width: 120px;
+    max-width: 130px;
+    color: white;
+  }
+}
+
+.table-buttons-container {
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5vh;
+  margin-bottom: 1vh;
+}
+
+.btn {
+  height: 45px;
+  width: 180px;
+}
+
+.btn-small {
+  width: 36px !important;
+  height: 40px !important;
+}
+
+.add-row-btn {
+  width: 19.5em;
+  justify-content: left;
+  align-items: center;
+
+  .icon {
+    cursor: pointer;
+    margin-top: 2px;
+    font-size: 20px;
+    color: $my-app-primary;
+  }
+
+  .add-row-text {
+    font-weight: 400;
+    font-size: 12px;
+    color: $input-text;
+    padding-left: 1em;
+  }
+}
+
+.page-container {
+  display: flex;
+  padding: 1vh 50px 0 50px;
+  // overflow: auto;
+  flex-direction: column;
+}
+
+.mat-drawer-inner-container {
+  display: flex;
+  flex-direction: column;
+  overflow: visible !important;
+}
+
+a {
+  color: $my-app-primary;
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  font-size: 14px !important;
+  height: 100% !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #eff4f7 inset !important;
+}
+
+.tooltip {
+  background: #eff4f6 !important;
+  box-shadow: 2px 4px 12px rgba(0, 173, 238, 0.15) !important;
+  font-size: 13px !important;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.25px;
+
+  color: $input-text !important;
+}
+
+.success {
+  background-color: $success !important;
+}
+
+.error {
+  background-color: #f27e7e !important;
+}
+
+table {
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  box-sizing: border-box;
+  margin: 3vh auto;
+  width: 95%;
+  color: white;
+  background-color: $my-app-primary;
+  opacity: 0.5;
+  box-shadow: 0px 1px 7px 4px rgba(0, 0, 0, 0.15);
+  min-height: 5vh;
+  align-items: center;
+  padding: 1%;
+
+  .icon {
+    font-size: 20px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+
+  .title {
+    color: $my-app-primary;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .exit-btn {
+    font-size: 1.1em;
+    color: #807f83;
+    cursor: pointer;
+  }
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-1em {
+  margin-top: 1em;
+}
+
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+.font-600 {
+  font-weight: 600;
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.text-area:input {
+  width: 90%;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.info {
+  display: flex;
+  box-sizing: border-box;
+  margin: 3vh 0 2vh 0;
+  width: 95%;
+  color: white;
+  background-color: $my-app-primary;
+  opacity: 0.5;
+  box-shadow: 0px 1px 7px 4px rgba(0, 0, 0, 0.15);
+  min-height: 5vh;
+  align-items: center;
+  padding: 1%;
+
+  .icon {
+    font-size: 20px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
+
+.break {
+  flex-basis: 100%;
+  height: 1.5em;
+}
+
+.mat-header-cell {
+  font-weight: 700 !important;
+  color: black;
+}
+
+.mat-header-row {
+  box-shadow: 2px 4px 12px rgb(0 173 238 / 15%);
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  padding-left: 20px;
+  border-bottom: 0px;
+  height: 83px;
+}
+
+tr:nth-child(even) {
+  background-color: #eff4f6 !important;
+}
+
+table * {
+  font-weight: 700;
+  color: $my-app-primary;
+  box-sizing: border-box;
+}
+
+td {
+  position: relative;
+}
+
+.mat-table {
+  .mat-row:first-child {
+    box-shadow: inset 0px 14px 12px -12px rgb(0 173 238 / 15%);
+  }
+}
+
+.table-header {
+  text-align: center;
+  color: black !important;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.mat-header-row {
+  th {
+    border-bottom: 0px !important;
+  }
+}
+
+.mat-row {
+  td {
+    border-bottom: 0px !important;
+  }
+}
+
+.mat-cell .text {
+  text-align: center;
+}
+
+.mat-error {
+  height: 13px !important;
+}
+
+.bx-map {
+  font-size: 32px;
+  color: $my-app-primary;
+}
+
+.bx-current-location {
+  font-size: 30px;
+  color: #910000;
+}
+
+.tooltip {
+  padding: 0.5em 0.7em;
+  color: black !important;
+}
+
+.apexcharts-tooltip {
+  box-shadow: none !important;
+
+  .series0 {
+    background-color: #d9e3e9;
+  }
+
+  .series1 {
+    background-color: #6e7c91;
+  }
+}
+
+.w-80 {
+  width: 80% !important;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.no-data {
+  font-weight: 700;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.chart-container {
+  margin-top: 10px;
+}
+
+.chart-title {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+
+//INPUT BACKGROUND
+::ng-deep {
+  .mat-form-field {
+    width: 100%;
+  }
+  .mat-form-field-wrapper .mat-form-field-flex {
+    background-color: $input !important;
+  }
+}
+
+//**MAT TAB**//
+::ng-deep {
+  .mat-tab-label-active {
+    color: $my-app-primary !important;
+    opacity: 1 !important;
+  }
+
+  .mat-tab-label {
+    min-width: 8em !important;
+    height: 2.5em !important;
+  }
+
+  .mat-tab-header {
+    margin-bottom: 2em;
+  }
+
+  .mat-tab-nav-bar,
+  .mat-tab-header {
+    border: unset !important;
+  }
+}
+
+//MATERIAL ICONS
+::ng-deep {
+  .material-icons {
+    font-family: "Material Icons" !important;
+  }
+}
+
+//sorting center table
+::ng-deep {
+  .mat-sort-header-container {
+    justify-content: center !important;
+  }
+}
+
+//modals
+::ng-deep {
+  .mat-dialog-container {
+    border-radius: 0 !important;
+  }
+}

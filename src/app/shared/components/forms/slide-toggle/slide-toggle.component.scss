@@ -1,0 +1,23 @@
+::ng-deep {
+  .mat-slide-toggle-thumb {
+    border-radius: 0 !important;
+    background: #00ADED !important;
+    box-shadow: unset !important;
+  }
+
+  .mat-slide-toggle-bar {
+    position: relative !important;
+    height: 20px !important;
+    border-radius: 0 !important;
+    border: 2px solid #00ADED !important;
+    background: white !important;
+  }
+
+  .mat-slide-toggle-thumb-container {
+    position: initial !important;
+  }
+
+  .mat-slide-toggle-bar:hover .mat-slide-toggle-persistent-ripple {
+    opacity: 0 !important;
+  }
+}

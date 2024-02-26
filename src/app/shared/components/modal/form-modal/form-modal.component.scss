@@ -1,0 +1,38 @@
+@import "theme.scss";
+
+app-dropdown-input,
+app-datepicker-input,
+app-text-input {
+  margin-bottom: 1em !important;
+}
+
+.title {
+  justify-content: space-between;
+  display: flex;
+}
+
+.map-container {
+  position: relative;
+  top: 20px;
+
+  .map-label {
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+    color: $my-app-primary;
+  }
+
+  #map {
+    height: 313px;
+  }
+}
+
+#buttons .btn .mat-button-wrapper {
+  color: white !important;
+}
+
+.search-btn {
+  height: 4rem;
+  width: 40%;
+}

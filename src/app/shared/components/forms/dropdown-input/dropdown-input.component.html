@@ -1,0 +1,23 @@
+<mat-form-field appearance="none" [formGroup]="formGroup" [ngStyle]="customStyle" class="ubi-dropdown">
+  <mat-label>{{label | translate}}</mat-label>
+
+  <mat-select id="{{multiple?'dropdown-multiple-filter-select':'dropdown-filter-select'}}"
+              [formControlName]="controlName"
+              [required]="options.required"
+              [multiple]="multiple"
+              (selectionChange)="onChangeSelection($event)"
+  >
+    <mat-option *ngFor="let value of values" [value]="allValue ? value: value.id">
+      <ng-container *ngIf="allValue">
+          {{value}}
+      </ng-container>
+      <ng-container *ngIf="!allValue">
+        {{(optionLabel ? value[optionLabel] : value.description) | translate}}
+    </ng-container>
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="options.error && formGroup.controls[controlName].invalid">
+    {{label}}
+    is required
+  </mat-error>
+</mat-form-field>

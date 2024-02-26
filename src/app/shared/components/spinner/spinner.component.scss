@@ -1,0 +1,33 @@
+.spinner {
+  z-index: 999;
+}
+
+.global {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  margin-left: -50px;
+}
+
+.withSidebar {
+  margin-left: 99px;
+}
+
+.local {
+  position: absolute;
+}
+
+.default ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #053266 !important;
+}
+
+.white ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: white !important;
+}
+
+.blue ::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #053266 !important;
+}

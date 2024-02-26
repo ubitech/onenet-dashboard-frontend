@@ -1,0 +1,36 @@
+<div class="page-container">
+  <app-page-title [title]="'Health Check' | translate" [icon]="'bx-pulse'"></app-page-title>
+  <p>Health status check based on last connector usage</p>
+  <ng-container *ngIf="loading; else ready">
+    <mat-spinner aria-label="Health check loading"></mat-spinner>
+  </ng-container>
+  <ng-template #ready>
+    <ng-container *ngIf="connectorLastUsage.length === 0; else notempty">
+      <h2>No connectors found.</h2>
+    </ng-container>
+    <ng-template #notempty>
+      <mat-card>
+        <div>
+          <mat-icon class="online" mat-list-icon>lens</mat-icon>
+          <span><b>Online</b> (used in the last week)</span>
+        </div>
+        <div>
+          <mat-icon class="idle" mat-list-icon>lens</mat-icon>
+          <span><b>Idle</b> (used in the last 60 days)</span>
+        </div>
+        <div>
+          <mat-icon class="offline" mat-list-icon>lens</mat-icon>
+          <span><b>Offline</b> (otherwise)</span>
+        </div>
+      </mat-card>
+      <mat-list>
+        <mat-list-item *ngFor="let c of connectorLastUsage">
+          <mat-icon class="generic" mat-list-icon>storage</mat-icon>
+          <mat-icon class="{{ getHealth(c.timestamp) }}" mat-list-icon>lens</mat-icon>
+          <div mat-line>{{c.connector}}</div>
+          <div mat-line class="date"> {{c.timestamp | date: 'long'}} </div>
+        </mat-list-item>
+      </mat-list>
+    </ng-template>
+  </ng-template>
+</div>

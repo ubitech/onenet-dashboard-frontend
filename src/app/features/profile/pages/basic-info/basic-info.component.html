@@ -1,0 +1,28 @@
+<form class="form-container basic-info-container" [formGroup]="profileForm" *ngIf="user">
+  <app-text-input
+    [controlName]="'username'"
+    [label]="'username'"
+    [formGroup]="profileForm"
+    [options]="{disabled: true, clearBtn: false}"
+  >
+  </app-text-input>
+  <app-text-input
+    [controlName]="'email'"
+    [label]="'Email'"
+    [formGroup]="profileForm"
+    [options]="{disabled: true, clearBtn: false}"
+  >
+  </app-text-input>
+
+  <button
+    mat-raised-button
+    color="accent"
+    class="btn"
+    style="width: 20em;"
+    (click)="navigateToKeycloak()"
+  >
+    Manage account information
+  </button>
+</form>
+
+<app-info [message]="message"></app-info>

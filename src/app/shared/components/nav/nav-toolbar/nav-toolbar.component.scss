@@ -1,0 +1,35 @@
+@import "theme.scss";
+
+.mat-toolbar {
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-end;
+  height: 3.2em;
+
+  .toolbar-content {
+    top: 1vh;
+    position: relative;
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .avatar img {
+      border-radius: 5px;
+      height: 2.1em !important;
+      cursor: pointer;
+    }
+
+    .toolbar-actions {
+      margin-top: 25px;
+    }
+
+    .avatar-chevron {
+      color: $my-app-primary;
+      font-size: 1.4em;
+      font-weight: 700;
+    }
+  }
+
+}
+

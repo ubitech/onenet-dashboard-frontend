@@ -1,0 +1,306 @@
+<div class="page-container">
+  <app-page-title [title]="'Advanced Filtering' | translate" [icon]="'bx-filter'"></app-page-title>
+  <p>Configuration of customizable filtering options</p>
+  <div id="advanced-filtering-content">
+    <mat-card>
+        <!-- Profile -->
+        <mat-form-field appearance="fill">
+          <mat-label>Profile</mat-label>
+          <mat-select [ngModel]="selectedProfileName" (ngModelChange)="onProfileChange($event)">
+            <mat-option *ngFor="let profile of profileList" value="{{profile.profileName}}">
+              {{profile.profileName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-fab (click)="deleteSelectedProfile()" color="warn" aria-label="Delete profile">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-fab (click)="openSaveProfileDialog()" aria-label="Save profile">
+            <mat-icon>save</mat-icon>
+          </button>
+          <button mat-fab color="accent" (click)="searchWithSelectedProfile()" aria-label="Search with profile">
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
+
+        <hr/>
+
+        <!-- Connector selector -->
+        <mat-form-field appearance="fill">
+          <mat-label>Select connector</mat-label>
+          <mat-select [ngModel]="selectedConnector" (ngModelChange)="onConnectorChange($event)">
+            <mat-option *ngFor="let connector of connectorList" value="{{connector}}">
+              {{connector}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="label">Time</div>
+        <!-- Logs date range -->
+        <mat-form-field appearance="fill">
+          <mat-label>Date range</mat-label>
+          <mat-date-range-input [formGroup]="dateRange" [rangePicker]="picker">
+            <input matStartDate formControlName="start" placeholder="From">
+            <input matEndDate formControlName="end" placeholder="To">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+          <mat-error *ngIf="dateRange.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+          <mat-error *ngIf="dateRange.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+          <mat-hint align="start">
+            Format: DD/MM/YYYY
+          </mat-hint>
+        </mat-form-field>
+
+        <div class="label">or</div>
+
+        <!-- Requests in the last X time units -->
+        <div class="filter-fields-row time">
+          <mat-form-field appearance="fill">
+            <mat-label>In the last... </mat-label>
+            <input matInput [formControl]="timeUnitsFormControl" placeholder="Ex. 4" [(ngModel)]="inputTimeUnits">
+          </mat-form-field>
+
+          <mat-form-field class="small" appearance="fill">
+            <mat-label>Units</mat-label>
+            <mat-select [(ngModel)]="selectedTimeUnits">
+              <mat-option *ngFor="let unit of allTimeUnits" value="{{unit}}">
+                {{unit}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="label">Request</div>
+        <!-- Request methods (verbs) -->
+        <mat-form-field appearance="fill">
+          <mat-label>Request Methods</mat-label>
+          <mat-chip-list #requestMethodChipList aria-label="Request method selection">
+            <mat-chip
+                *ngFor="let requestMethod of requestMethods"
+                (removed)="removeRequestMethod(requestMethod)">
+              {{requestMethod}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input
+                placeholder="New request method..."
+                #requestMethodInput
+                [formControl]="requestMethodCtrl"
+                [matAutocomplete]="requestMethodAutocomplete"
+                [matChipInputFor]="requestMethodChipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="addRequestMethod($event)">
+          </mat-chip-list>
+          <mat-autocomplete #requestMethodAutocomplete="matAutocomplete" (optionSelected)="onRequestMethodSelection($event)">
+            <mat-option *ngFor="let requestMethod of filteredRequestMethods | async" [value]="requestMethod">
+              {{requestMethod}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <!-- Client IP -->
+        <mat-form-field style="flex: 1 1 200%" appearance="fill">
+          <mat-label>Client IP</mat-label>
+          <mat-chip-list #clientIpChipList aria-label="Client IP selection">
+              <mat-chip
+                  *ngFor="let clientIP of clientIPs"
+                  (removed)="removeClientIP(clientIP)">
+                {{clientIP}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="Ex. 192.168.1.1"
+                     [matChipInputFor]="clientIpChipList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     (matChipInputTokenEnd)="addClientIP($event)">
+          </mat-chip-list>
+        </mat-form-field>
+
+        <!-- Countries -->
+        <mat-form-field appearance="fill">
+          <mat-label>Country</mat-label>
+          <mat-chip-list #countryChipList aria-label="Country selection">
+            <mat-chip
+                *ngFor="let country of countries"
+                (removed)="removeCountry(country)">
+              <span matChipAvatar class="fi fi-{{ countryMappingInverse[country].toLowerCase() }} fis"></span>
+              {{country}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input
+                placeholder="New country..."
+                #countryInput
+                [formControl]="countryCtrl"
+                [matAutocomplete]="countryAutocomplete"
+                [matChipInputFor]="countryChipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="addCountry($event)">
+          </mat-chip-list>
+          <mat-autocomplete #countryAutocomplete="matAutocomplete" (optionSelected)="onCountrySelection($event)">
+            <mat-option *ngFor="let country of filteredCountries | async" [value]="country">
+              {{country}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <div class="label">Response</div>
+        <!-- Data sent -->
+        <div class="filter-fields-row data-sent">
+          <mat-form-field class="small" appearance="fill" class="example-form-field">
+            <mat-label>Min</mat-label>
+            <input matInput [formControl]="dataSentMinFormControl" type="text" [(ngModel)]="dataSentMin">
+            <button mat-button *ngIf="dataSentMin" matSuffix mat-icon-button aria-label="Clear" (click)="dataSentMin=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <mat-form-field class="small" appearance="fill" class="example-form-field">
+            <mat-label>Max</mat-label>
+            <input matInput [formControl]="dataSentMaxFormControl" type="text" [(ngModel)]="dataSentMax">
+            <button mat-button *ngIf="dataSentMax" matSuffix mat-icon-button aria-label="Clear" (click)="dataSentMax=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <mat-form-field class="small" appearance="fill">
+            <mat-label>Units</mat-label>
+            <mat-select [(ngModel)]="selectedDataSentUnits">
+              <mat-option *ngFor="let unit of dataSentUnitsList" value="{{unit}}">
+                {{unit}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- <div class="filter-fields-row"> -->
+
+        <!-- Response codes -->
+        <mat-form-field appearance="fill">
+          <mat-label>Response Codes</mat-label>
+          <mat-chip-list #responseCodeChipList aria-label="Response Code selection">
+            <mat-chip
+                *ngFor="let responseCode of responseCodes"
+                (removed)="removeResponseCode(responseCode)">
+              {{responseCode}}
+              <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+            <input
+                placeholder="New response code..."
+                #responseCodeInput
+                [formControl]="responseCodeCtrl"
+                [matAutocomplete]="responseCodeAutocomplete"
+                [matChipInputFor]="responseCodeChipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="addResponseCode($event)">
+          </mat-chip-list>
+          <mat-autocomplete #responseCodeAutocomplete="matAutocomplete" (optionSelected)="onResponseCodeSelection($event)">
+            <mat-option *ngFor="let responseCode of filteredResponseCodes | async" [value]="responseCode">
+              {{responseCode}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <!-- </div> -->
+    </mat-card>
+
+    <!-- <div class="results"> -->
+    <!--   <mat-tab-group> -->
+    <!--     <mat-tab label="Overview"> -->
+    <!--       <app-connector-pie-graph></app-connector-pie-graph> -->
+    <!--     </mat-tab> -->
+    <!--     <mat-tab label="Details"> -->
+    <!--       Details content -->
+    <!--     </mat-tab> -->
+    <!--   </mat-tab-group> -->
+    <!-- </div> -->
+
+    <!-- Results -->
+    <div *ngIf="results.length === 0 && !resultsLoading" class="results empty">
+      <div style="text-align: center">
+        <mat-icon>search</mat-icon>
+        <h2>Search results will be shown here</h2>
+      </div>
+    </div>
+    <div *ngIf="resultsLoading" class="results empty">
+      <div style="text-align: center">
+        <mat-spinner aria-label="Advanced filtering results loading"></mat-spinner>
+      </div>
+    </div>
+    <div *ngIf="results.length > 0" class="results">
+      <button class="download-csv" color="accent" mat-button (click)="downloadCsv()">Download CSV</button>
+
+      <mat-paginator
+        #paginator
+        [length]="results.length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="pageIndex"
+        (page)="pageEvent = paginatorHandlePage($event)"
+        [showFirstLastButtons]="true">
+      </mat-paginator>
+
+      <mat-expansion-panel *ngFor="let res of results | slice: paginatorLowValue : paginatorHighValue">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <span class="responseCode {{ responseCodesClassMapping[res.responseCode[0]] }}">{{ res.responseCode }}</span>
+            <span class="requestMethod">{{res.requestMethod}}</span>
+            <mat-icon class="alt">arrow_forward</mat-icon> connector {{ res.connector }}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{ res.timestamp }}
+            <!-- formatted like X Y ago -->
+            <!-- <mat-icon>account_circle</mat-icon> -->
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-divider style="margin-bottom: 12px"></mat-divider>
+
+        <p><span class="row-label">Path</span>
+        <abbr title="{{res.path}}">
+          {{(res.path.length>40)? (res.path | slice:0:40)+'...':(res.path)}}
+        </abbr>
+        </p>
+        <p><span class="row-label">Request size</span>{{res.contentLength}}B </p>
+        <p><span class="row-label">Response size</span>{{res.bytesSent}}B</p>
+
+        <mat-divider style="margin-bottom: 6px"></mat-divider>
+
+        <!-- <mat-icon>person</mat-icon> -->
+
+        <p>
+        <span class="row-label">IP Address</span>
+        <button mat-icon-button class="combo" (click)="copyToClipboard(res.clientIP)" aria-label="Copy IP address to clipboard">
+          {{ res.clientIP }}
+          <mat-icon inline>content_copy</mat-icon>
+        </button>
+        </p>
+
+
+        <p>
+        <span class="row-label">Location</span>
+        <span style="margin-left: 6px;" class="fi fi-{{ res.countryCode.toLowerCase() }}"></span>
+        {{ res.cityName }}, {{countryMapping[res.countryCode.toUpperCase()]}}
+        </p>
+
+        <p><span class="row-label">Operating System</span> {{ res.os }}</p>
+
+        <p><span class="row-label">Browser</span> {{ res.browser }}</p>
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>
+
+<ng-template #saveProfileDialog>
+    <h2 matDialogTitle>Save profile</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Profile Name</mat-label>
+      <input matInput [formControl]="profileNameFormControl" [(ngModel)]="dialogProfileName">
+      <mat-hint align="start">
+        Max 30 latin alphanumeric characters
+      </mat-hint>
+    </mat-form-field>
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="dialogRef.close()">Cancel</button>
+      <button mat-button (click)="onProfileNameConfirm()">Confirm</button>
+    </mat-dialog-actions>
+</ng-template>

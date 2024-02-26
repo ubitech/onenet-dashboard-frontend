@@ -1,0 +1,55 @@
+<div class="sidenav-item-tooltip">
+  <div
+    class="select-wrapper"
+    (mouseenter)="toggleContent(true)"
+    (mouseleave)="toggleContent(false)"
+  >
+
+    <div class="select-item select-label"
+         [style]="item.label.length > 12 ? 'min-width:17em':''"
+         [ngClass]="item.url?'pointer':'no-pointer'"
+         [routerLink]="item.url">
+      {{ item.label | translate}}
+      <span>
+        <i
+          *ngIf="item.content?.length > 0"
+          class="bx bx-caret-down select-item-caret"
+        ></i>
+      </span>
+    </div>
+    <div class="select-content" *ngIf="selected">
+      <div class="select-item" *ngFor="let children of item.content; let i = index">
+        <div
+          (mouseenter)="toggleSubContent(true, i)"
+          (mouseleave)="toggleSubContent(false, i)"
+          [routerLink]="children.url">
+          <div class="select-wrapper">
+            <div class="select-item select-label">
+              {{ children.label | translate}}
+              <span>
+                <i *ngIf="children.subchildren && children.subchildren.length > 0"
+                   class="bx bx-caret-right select-item-caret"></i
+                ></span>
+            </div>
+          </div>
+          <div class="select-wrapper subchild-wrapper" [style]="item.label.length > 12 ? 'left:17em':''">
+            <div class="select-content" *ngIf="selectedChildren[i]">
+              <div class="select-item"
+                   *ngFor="let subchild of children.subchildren"
+                   [routerLink]="subchild.url"
+                   [ngClass]="subchild.url?'pointer':'no-pointer'"
+              >
+                {{ subchild.label | translate}}
+                <ng-container></ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,94 @@
+.page-container {
+  flex-direction: column;
+}
+
+.full-width {
+  width: 84vw;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.connector-selector {
+  display: flex;
+  gap: 20px;
+  margin: 10px 0 10px 0;
+  mat-form-field {
+    width: 300px;
+  }
+}
+
+.add-padding {
+  padding-top: 9vh;
+}
+
+.data-monitoring-chart {
+  figcaption {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 10px 0 10px 0;
+  }
+
+  figcaption.sent-byte-size {
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.anomaly-detection-analysis {
+  margin-top: 70px;
+  width: 100%;
+  .title {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: hsl(255, 2%, 52%);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .recall-chart {
+    margin-top: 40px;
+  }
+  .mat-card {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .mat-card-title {
+      position: absolute;
+      top: 16px;
+      left: 25%;
+      right: 25%;
+      font-size: 1.1em;
+      text-align: center;
+      color: hsl(255, 2%, 52%);
+    }
+    .mat-card-content {
+      font-size: 3em;
+      text-align: center;
+      padding: 0.2em;
+    }
+    .challenged {
+      color: hsl(4deg 100% 50%);
+    }
+    .passed-challenge {
+      color: hsl(122, 39%, 50%);
+    }
+  }
+}
+
+::ng-deep {
+  .data-monitoring-tab .mat-tab-body-content {
+    height: 100%;
+    overflow: auto;
+    min-height: 300px;
+  }
+  .mat-tab-label-content {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}

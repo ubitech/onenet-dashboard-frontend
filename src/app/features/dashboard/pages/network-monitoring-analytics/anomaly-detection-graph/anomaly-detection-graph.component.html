@@ -1,0 +1,35 @@
+<app-page-title [title]="'Anomaly Detection' | translate"></app-page-title>
+
+<div *ngIf="showGraph">
+  <div class="anomaly-detection-timeframe-selector">
+    <mat-form-field appearance="fill">
+      <mat-label>Select timeframe in minutes</mat-label>
+      <mat-select [ngModel]="selectedTimeframe" (ngModelChange)="onTimeframeChange($event)">
+        <mat-option *ngFor="let timeframe of timeframeList" value="{{timeframe}}">
+          {{timeframe}}
+        </mat-option>
+      </mat-select>
+      <mat-hint>Currently displaying data for the last <b>{{selectedTimeframe}} minutes</b></mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="anomaly-detection-chart-fixed-height-container">
+    <app-bar-chart
+      [inputSeries]="anomalyDetectionChartSeries"
+      [inputOptions]="anomalyDetectionChartOptions"
+      [title]="'Anomaly Detections'"
+      [horizontal]="false"
+      [stacked]="false"
+      [xaxis]="anomalyDetectionChartXAxis"
+      [yaxis]="anomalyDetectionChartYAxis"
+      [tooltip]="tooltip"
+    >
+    </app-bar-chart>
+  </div>
+</div>
+<app-spinner
+  [loader]="anomaliesLoader"
+  [local]="true"
+  [color]="'blue'"
+  [inputPosition]="{ 'margin-top': '160px' }"
+></app-spinner>

@@ -1,0 +1,8 @@
+<div class="checkbox-container">
+  <div class="checkbox" (click)="click()" [ngClass]="{ checked: checked }">
+    <i class="bx bx-check" *ngIf="checked"></i>
+  </div>
+  <div class="text">
+    <ng-content></ng-content>
+  </div>
+</div>

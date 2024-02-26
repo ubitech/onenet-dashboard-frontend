@@ -1,0 +1,36 @@
+@import "theme.scss";
+
+mat-card {
+  box-sizing: border-box;
+  box-shadow: 1.92px 3.84px 11.51px rgba(0, 173, 238, 0.15) !important;
+  min-width: 100% !important;
+  min-height: 306px;
+  margin-bottom: 1vh;
+
+  margin-top: 0.8em;
+  width: 100% !important;
+  //width: 87vw !important;
+  height: 425px;
+
+  mat-card-title {
+    font-weight: bold;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    color: $my-app-primary;
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  mat-card-subtitle {
+    font-size: 0.72em;
+    line-height: 16px;
+    letter-spacing: 0.25px;
+    color: $input-text;
+
+    &.footer {
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+}

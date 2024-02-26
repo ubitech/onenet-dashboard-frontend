@@ -1,0 +1,27 @@
+<div class="filter-wrapper">
+  <form [formGroup]="filterForm">
+    <div class="flex inputs">
+      <app-search-input [controlName]="'filter'" [formGroup]="filterForm">
+      </app-search-input>
+    </div>
+
+    <div class="filter-buttons flex">
+      <button
+        mat-raised-button
+        color="accent"
+        class="filter-btn"
+        (click)="filter()"
+      >
+        {{ 'filter' | translate}}
+      </button>
+      <button
+        mat-raised-button
+        color="white"
+        class="btn-small"
+        (click)="reset()"
+      >
+        <i class="bx bx-refresh refresh-icon"></i>
+      </button>
+    </div>
+  </form>
+</div>

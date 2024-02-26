@@ -1,0 +1,59 @@
+@import "theme.scss";
+
+.sidenav-item-tooltip {
+  cursor: pointer;
+  background: #f7fbfc;
+  color: $my-app-primary;
+  border-radius: 0px;
+  font-size: 1.1rem;
+  font-family: "Ubuntu Regular";
+  font-weight: 400;
+  font-size: 12px;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: 4px;
+  z-index: 1000 !important;
+
+  & * {
+    background-color: #f7fbfc;
+  }
+}
+
+.select-wrapper {
+  min-width: 12em;
+
+  .select-label {
+    height: 37px;
+    box-sizing: border-box;
+  }
+
+  .select-item {
+    box-shadow: 2px 4px 12px $my-app-primary;
+    line-height: 37px;
+    width: 100%;
+    position: relative;
+
+    .select-item-caret {
+      position: absolute;
+      right: 3px;
+      top: 12px;
+    }
+  }
+}
+
+.subchild-wrapper {
+  position: absolute;
+  top: 0px;
+  left: 130px;
+  box-sizing: border-box;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.no-pointer {
+  cursor: default;
+}

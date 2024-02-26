@@ -1,0 +1,104 @@
+@import 'theme.scss';
+
+.main-content-expanded {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50vh;
+  margin-top: 25vh;
+  margin-left: 25px;
+
+
+  .sidenav-item {
+    display: flex;
+    flex-wrap: nowrap;
+
+    .nav-list {
+      padding-left: 15px;
+
+      .content {
+        .mat-list-item {
+
+          color: hsl(249deg 28% 72%);
+
+          .child-item {
+            cursor: pointer;
+            font-size: 12px;
+
+            &:hover {
+              color: white;
+            }
+          }
+
+          .sub-child-item {
+            font-family: "Ubuntu Bold" !important;
+            font-size: 10px;
+            cursor: pointer;
+            margin-left: 17px;
+            margin-top: 0.5em;
+
+            &:hover {
+              color: hsl(249deg 28% 72%);
+            }
+          }
+        }
+      }
+
+      .title {
+        color: white;
+        opacity: 0.8;
+        font-weight: 700;
+        padding-top: 2px;
+        font-family: "Ubuntu Bold" !important;
+        font-size: 12px !important;
+        line-height: 18px;
+        letter-spacing: 0.25px;
+        width: 11em;
+
+        &:hover {
+          color: white;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .mat-list-base .mat-list-item.mat-2-line,
+  .mat-list-base .mat-list-option.mat-2-line {
+    height: inherit;
+  }
+
+  .sidenav-icon {
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+
+.pointer {
+  cursor: pointer;
+}
+
+.no-pointer {
+  cursor: default;
+
+  &:hover {
+    color: white !important;
+  }
+}
+
+
+.main-content-expanded .sidenav-item .nav-list .content .mat-list-item .child-item {
+  cursor: pointer;
+  font-family: "Ubuntu Light" !important;
+  font-size: 12px !important;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+}
+
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+  height: 2em;
+}
+
+

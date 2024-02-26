@@ -1,0 +1,26 @@
+
+@import "styles";
+@import "forms";
+
+::ng-deep.mat-snack-bar-container {
+  /* Colors/Success/Default */
+  display: flex;
+  opacity: 0.5;
+  min-width: 215px;
+  min-height: 41px;
+  color: $input;
+  border-radius: 0px;
+  text-align: center;
+
+  .mat-simple-snackbar {
+    justify-content: center;
+  }
+}
+
+::ng-deep {
+  .mat-drawer-container {
+    background-color: $white !important;
+    color: $input-text !important;
+
+  }
+}

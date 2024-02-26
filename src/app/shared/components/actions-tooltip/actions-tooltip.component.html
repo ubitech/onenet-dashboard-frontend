@@ -1,0 +1,16 @@
+<div class="actions-tooltip-container">
+  <i class="action-btn" [ngStyle]="cssProperties.icon" [ngClass]="icon" (click)="clickMenu()"></i>
+  <div class="actions-tooltip"
+       (mouseleave)="showTooltip = false"
+       [ngStyle]="cssProperties.tooltip"
+       *ngIf="showTooltip">
+    <div class="arrow-up" *ngIf="arrowShow"></div>
+    <div class="action" *ngFor="let action of actions" (click)="clickAction(action)">
+      {{action | translate}}
+    </div>
+    <div id="language" *ngIf="language">
+      <hr>
+      <app-language></app-language>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="page-container">
+    <app-page-title [title]="'Data Sharing Analytics' | translate" [icon]="'bx-transfer'"></app-page-title>
+
+    <div class="chart-container">
+        <div class="chart-title">
+            Registered Users Per Month
+        </div>
+        <div class="month-select">
+            <app-dropdown-input [controlName]="'month'" [label]="'Month'" [formGroup]="dropdownForm" [values]="months" [allValue]="true" (changeSelection)="onChangeMonth($event)">
+            </app-dropdown-input>
+    
+        </div>
+        <app-bar-chart
+        [inputSeries]="registeredUsersData"
+        [xaxis]="registeredUsersXaxis"
+        [stacked]="false"
+      >
+      </app-bar-chart>
+    </div>
+
+
+</div>
